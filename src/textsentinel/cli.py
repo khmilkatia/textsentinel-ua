@@ -6,13 +6,13 @@ import sys
 from pathlib import Path
 
 from . import __version__
-from .punctuation import fix_space_before_punct
+from .fixer import fix_all
 from .report import analyze, render_json, render_markdown, render_text
 from .whitespace import fix_whitespace
 
 
 def fix_text(text: str) -> str:
-    return fix_whitespace(fix_space_before_punct(text))
+    return fix_all(text)
 
 
 def build_parser() -> argparse.ArgumentParser:
