@@ -15,7 +15,7 @@ _OPENERS = set(_PAIRS.values())
 
 def find_space_before_punct(text: str, marks: str = ".,;:!?") -> list[Issue]:
     """Пробіл перед розділовим знаком: «Привіт ,»."""
-    pat = re.compile(rf"(?<=\S)( +)([{re.escape(marks)}])")
+    pat = re.compile(rf"(?<=\S)( +)([{re.escape(marks)}])(?!\.\.)")
     issues = []
     for n, line in enumerate(text.splitlines(), 1):
         for m in pat.finditer(line):

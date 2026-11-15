@@ -37,3 +37,11 @@ def test_quote_style():
 
 def test_fix_space_before_punct():
     assert fix_space_before_punct("Привіт , світе !") == "Привіт, світе!"
+
+
+def test_space_before_question_mark():
+    assert len(find_space_before_punct("Що це ?")) == 1
+
+
+def test_ellipsis_with_space_is_not_error():
+    assert find_space_before_punct("Ну ... так") == []
